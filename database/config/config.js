@@ -1,7 +1,7 @@
 module.exports={
   "development": {
     "username": "root",
-    "password": casi1506,
+    "password": "casi1506",
     "database": "mercado_liebre",
     "host": "127.0.0.1",
     "dialect": "mysql"
