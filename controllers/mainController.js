@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
+
+// con json, con base de datos en productsController
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 

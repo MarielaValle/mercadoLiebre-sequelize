@@ -51,7 +51,85 @@ const controller = {
     
     
     
-        }
+        },
+
+        edit: (req, res) => {
+
+            db.Product.findByPk(req.params.id)
+    
+                .then(function (producto) {
+                   
+    
+                   let productToEdit = producto;
+    
+                   
+    
+                    res.render('product-edit-form', { productToEdit });
+    
+                })
+    
+                .catch(error => console.log(error));
+        },
+    
+    
+    
+    
+        update: (req, res) => {
+            db.Product.update({
+            name: req.body.name,
+			price: parseFloat(req.body.price),
+			discount: parseFloat(req.body.discount),
+			category: req.body.category,
+			description: req.body.description,
+			image: "image"
+    
+    
+            }, {
+    
+                where:
+                    { id: req.params.id }
+
+            
+           
+            })
+    
+            res.send("Editado!");
+    
+            
+            
+    
+        },
+
+        delete: (req, res) => {
+
+         
+		
+
+            db.Product.findByPk(req.params.id)
+                .then(function (producto){
+                   
+                    let productToErase=producto
+    
+                    res.render("product-delete-form", { productToErase });
+                    
+                })
+    
+                .catch(error => console.log(error));
+        },
+    
+    
+        destroy: (req, res) => {
+            // Do the magic
+            db.Product.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+    
+            res.redirect('/products/');
+    
+    
+        },
     
 
 

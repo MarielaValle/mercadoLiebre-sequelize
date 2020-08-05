@@ -37,9 +37,11 @@
 
 						<i class="fas fa-truck"></i>
 					</article>
-
+					
 				</section>
-
+				
+				<a href="/products/edit/<%= producto.id %>" class="action-button edit">EDITAR PRODUCTO</a>
+				<a href="/products/delete/<%= producto.id %>" class="action-button edit" style='background-color:red'>ELIMINAR PRODUCTO</a>
 			</div>
 
 
@@ -103,8 +105,8 @@
 							<a href="#" class="buy-now-button">COMPRAR AHORA</a>
 							<hr>
 
-							<a href="#" class="action-button edit">EDITAR PRODUCTO</a>
-							<form action="#" method="get" style="display: inline-flex">
+							<a href="/products/edit/<%= producto.id %>" class="action-button edit">EDITAR PRODUCTO</a>
+							<form action="/products/delete/<%= producto.id %>" method="get" style="display: inline-flex">
 								<button type="submit" class="action-button delete">ELIMINAR</button>
 							</form>
 						</article>
